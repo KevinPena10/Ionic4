@@ -1,0 +1,7 @@
+{
+  "name": "Platzi-Music",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
