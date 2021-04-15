@@ -1,38 +1,14 @@
 <ion-content class="Content">
-  <ion-slides pager="true">
-    <ion-slide [options]="slideOps">
+  <ion-slides pager="true" [options]="slideOpt">
+    <ion-slide *ngFor="let slide of slides">
      <ion-icon name="close" ></ion-icon>
       <img src="assets/img/logo.png" alt="K Music">
-      <h1>Escucha tu música</h1>
-      <h2>En CUALQUIER LUGAR</h2>
+      <h1>{{slide.title}}</h1>
+      <h2>{{slide.subTitle}}</h2>
       <p>
-        Los mejors álbumes, las mejores Canciones. Escucha y Comparte en
-        cualquier momento, a todas horas.
+       {{slide.description}}
       </p>
-      <ion-icon name="play"></ion-icon>
-    </ion-slide>
-    <ion-slide>
-      <ion-icon name="close"></ion-icon>
-      <img src="assets/img/logo.png" alt="K Music">
-      <h1>Accede al exclusivo</h1>
-      <h2>MODO DEPORTE</h2>
-      <p>
-        Crea una playlist basada en tu actividad física. <br />
-        Ten reportes y acceso a lo que necesites, inegrado con GPS!
-      </p>
-      <ion-icon name="bicycle"></ion-icon>
-    </ion-slide>
-    <ion-slide>
-      <ion-icon name="close"></ion-icon>
-      <img src="assets/img/logo.png" alt="K Music">
-      <h1>Disfruta de nuestro reproductor</h1>
-      <h2>DE VIDEOS INCREÍBLES</h2>
-      <p>
-        Entra al modo video de nuestro reproductor y obtén
-        acceso a clips, documentales y making offs increbles
-        de tus artita favorito.
-      </p>
-      <ion-icon name="videocam"></ion-icon>
+      <ion-icon name="{{ slide.icon }}"></ion-icon>
     </ion-slide>
   </ion-slides>
 </ion-content>
