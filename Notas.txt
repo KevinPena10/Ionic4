@@ -1,1 +1,60 @@
 -------------------------- NOTAS DEL CURSO DE IONIC 4 -------------------------------
+
+La Version 4 de Ionic trabaja es con Capacitor y deja de un lado Cordova.
+Basicamente Capacitor envuelve el código web y provee mecanismos de conexión con los 
+elementos del dispositivo (Cámara, sensores) a través de Plugins.
+
+Para iniciar un proyecto ionic es con el comando:
+ionic start 
+ionic serve -> Iniciar 
+Con ionic --list -> Me muestra los tipos de template que tiene Ionic al iniciar
+
+Para instalar capacitor es con el comando:
+npm install --save @capacitor/core @capacitor/cli li --save-exact
+
+con npx cap init -> Agregamos a nuestro proyecto el Capacitor
+   Con npx cap add android -> Agregamos a Capacitor la plataforma de android
+   Pero ANTES de ejecutar el comando, se debe correr: ionic build ->
+   para que este cree la carpeta WWW(Contiene todo el proyecto
+   con los archivos minificados, partidos, etc. y es la carpeta principal
+   que trae todos los archivos cuando se lleve a una plataforma nativa
+   ) ya que la carpeta que genera el build  es el código o 
+   paquete que va tomar Capacitor como referencia para comenzar con
+   el android 
+
+   Este comando crea una carpeta para Android  que se puede 
+   abrir del lado del Android Studio, con el comando 
+   npx cap open android
+
+   Para sincronizar tus dispostivos con el desarrollo actual:
+
+   - Siempre ejecutar el comando ionic build. 
+   - Luego " npx cap sync " logra que los dispositivos de ios y android
+   se sincronicen 
+
+   npx cap copy: Este comando es utilizado cuando 
+   solo modificas el html del proyecto para que
+   se sincronice de forma rapida.
+
+   El npx cap update o sync: Se utiliza es cuando
+   se haya agregado Plugins a tu proyecto, cuando
+   se modifica el código nativo o algo por fuera de
+   la carpeta WWW.
+
+   Con la etiqueta o componente:
+    <ion-icon name=""></ion-icon>
+    podemos agregar iconos de Ionic y se buscan en la siguiente pagina:
+
+    En los estilos estamos utilizando 
+     --background: var(--ion-color-success);
+     donde var(--ion-color-success) basicamente lo estamos obteniendo de 
+     theme, variables.sccs donde vas encontrar los colores que tiene Ionic
+
+
+     Cuando nos encontramos en la documentación de Ionic 
+     los estilos de Css para modificar, "CSS Custom Properties"
+     me va salir asi:
+     --background: -> lo que quiere decir esos -- es que es la unica
+     manera de modificar los estilos de ionic directamente, osea 
+     que para modificar el background en especifico en un componente 
+     de ionic toca acceder con --
