@@ -58,3 +58,42 @@ con npx cap init -> Agregamos a nuestro proyecto el Capacitor
      manera de modificar los estilos de ionic directamente, osea 
      que para modificar el background en especifico en un componente 
      de ionic toca acceder con --
+
+     Comandos de Ionic:
+
+     Para generar una nueva pagina con Ionic se utiliza 
+     el comando:
+
+    --->ionic generate page "intro" 
+
+    Para guardar variables temporales en Ionic se utiliza lo siguiente:
+    El ejemplo en este caso es para que al usuario no le salga 
+    el modal todo el tiempo de los intro.
+
+    Para utilizar Ionic Storage:
+    npm install --save @ionic/storage --save-exact
+
+    npm install @ionic/storage-angular -> Si se usa angular
+
+    NOTA: SIEMPRE ES IMPORTANTE INYECTARLO EN EL COMPONENTE
+    Y ESTABLECERLO EN LOS IMPORTS DEL APP.MODULE
+
+   import { IonicStorageModule } from '@ionic/storage-angular';
+
+   @NgModule({
+   imports: [
+      IonicStorageModule.forRoot()
+   ]
+   })
+
+   Antes de utilizar el Ionic Storage
+
+   debe crear la bd primero:
+    
+    async ngOnInit() {
+     await this.storage.create();
+    }
+
+    y luego se utiliza:
+      this.storage.set('isIntroShowed', true);
+
