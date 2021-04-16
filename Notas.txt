@@ -101,3 +101,13 @@ con npx cap init -> Agregamos a nuestro proyecto el Capacitor
   Con el comando el siguiente comando generamos Guards:
   ---->>>   ionic generate guard guards/intro
   Con "guards/intro" estamos especificando la ruta
+
+  Agregar en el app-routing.module, el canActive para controlar 
+  las rutas, de la siguiente forma:
+
+  import {IntroGuard} from './guards/intro.guard';
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [IntroGuard], -> True or False-- > Si es True lo deja seguir a la ruta.
+  },
