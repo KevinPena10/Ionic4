@@ -36,14 +36,15 @@ export class IntroPage implements OnInit {
       description:" Crea una playlist basada en tu actividad física. Ten reportes y acceso a lo que necesites, integrado con GPS!",
       icon:"bicycle",
     }]
-  constructor(private router: Router, private storage: Storage) { }
-
-  async ngOnInit() {
-    await this.storage.create();
+  constructor(private router: Router, private storage: Storage) { 
+    this.storage.create();
   }
 
+   ngOnInit() {
+   }
+
   close(){
-    this.storage.set('isIntroShowed', true);
+    this.storage.set('iSIntroShowed', true);
     this.router.navigateByUrl("/home");
   }
 
