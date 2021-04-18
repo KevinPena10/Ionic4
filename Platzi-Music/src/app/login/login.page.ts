@@ -10,6 +10,7 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   validation_messages = {
    email:[
+    {type:"requiered", message:"El email es requerido"},
      {type:"pattern", message:"El email no es válido"},
    ],
    password:[
@@ -22,7 +23,7 @@ export class LoginPage implements OnInit {
     this.loginForm = this.formBuilder.group({
       email: new FormControl("", Validators.compose([
         Validators.required,
-        Validators.email,
+        Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")
       ])), 
       password: new FormControl("", Validators.compose([
         Validators.required,
@@ -33,6 +34,10 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  loginUser(credentials){
+    console.log(credentials);
   }
 
 }

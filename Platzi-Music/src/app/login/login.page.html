@@ -11,7 +11,7 @@
       <ng-container *ngFor="let validation of validation_messages.email">
         <!--Si se modifico el input con valores o esta lleno muestre el error-->
         <div *ngIf="loginForm.get('email').hasError(validation.type) && 
-          (loginForm.get('email').dirty || loginForm.get('email').touched) ">
+           loginForm.get('email').dirty ">
           {{validation.message}}
         </div>
       </ng-container>
@@ -29,5 +29,18 @@
         </div>
       </ng-container>
     </div>
+    <ion-button 
+    expand="full" 
+    shape="round" 
+    fill="outline" 
+    color="success"
+    [disabled] ="!loginForm.valid"
+    type="submit">
+    Login
+  </ion-button>
   </form>
 </ion-content>
+<ion-footer class="ion-text-center" >
+  <ion-button expand="full" shape="round" fill="outline" color="success">
+    Click para registrar</ion-button>
+</ion-footer>
