@@ -111,3 +111,12 @@ con npx cap init -> Agregamos a nuestro proyecto el Capacitor
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
     canActivate: [IntroGuard], -> True or False-- > Si es True lo deja seguir a la ruta.
   },
+
+  Utilidades de Css con ionic
+  <ion-title class="ion-text-uppercase">Este es mi Texto</ion-title>
+   
+   En este caso ya hay una clase de Css de Ionic que me coloco 
+   la frase en mayuscula.
+  <figure class="ion-text-center ion-padding">
+  Para mas estilos definidos por Ionic:
+  https://ionicframework.com/docs/layout/css-utilities
