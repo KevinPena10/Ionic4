@@ -154,8 +154,6 @@ con npx cap init -> Agregamos a nuestro proyecto el Capacitor
     </ion-item>
   </form>
 
-
-
   NOTA: ES MUY IMPORTANTE SIEMPRE TRABAJAR CON LO COMPONENTES
   DE IONIC 
   <ion-label></ion-label>
@@ -166,3 +164,37 @@ con npx cap init -> Agregamos a nuestro proyecto el Capacitor
     una etiqueta p, es basicamente un contenedor logico que sirve
     para mostrar algo o no.
   <ng-container> </ng-container>
+
+  ------------------ Servicio para validar credenciales con IONIC------------------
+
+Para generar un servicio del lado de Ionic es con el comando:
+ionic generate service services/authenticate
+
+En este caso no tenemos backend, entonces lo hacemos así:
+loginUser(credential){
+    return new Promise((resp, reject)=>{
+      if(credential.email == "test@tets.com" && credential.password == "12345"){
+        resp("Login correcto");
+      }else{
+        reject("login Incorreto")
+      }
+    });
+}
+
+PERO EN CASO DE TENER BACKEND DENTRO DEL METODO ES CON FETH O ASÍ:
+import { HttpClient } from '@angular/common/http';
+return this.http.get<Product[]>( `${environment.url_api}/products/`);
+
+NOTA IMPORTANTE: 
+Esta forma nos sirve es para ir saltando entre vistas:
+this.router.navigateByUrl("/home");
+
+Pero Cuando queremos ir hacia delante o atrás cuando 
+se realiza la autenticación exitosa o log out, hacemos uso de:
+
+
+import { NavController } from '@ionic/angular';
+
+ constructor(private navCtrl: NavController) {} 
+
+this.navCtrl.navigateForward("/home");
