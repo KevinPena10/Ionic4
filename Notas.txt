@@ -120,3 +120,49 @@ con npx cap init -> Agregamos a nuestro proyecto el Capacitor
   <figure class="ion-text-center ion-padding">
   Para mas estilos definidos por Ionic:
   https://ionicframework.com/docs/layout/css-utilities
+
+  -------------------  Formularios Reactivos con IONIC--------------
+    loginForm: FormGroup; -> Declaramos la variable de tipo FormGroup 
+    para poder utilizar las validaciones de los formularios reactivos
+     
+     Inyectamos en el constructor el FormBuilder para
+     permitir la contrucción del formulario y no 
+     olvidarse de importar arriba en los modulos.
+    constructor(private formBuilder: FormBuilder) {}
+
+    Construimos las primeras validaciones y campos 
+    del FormGroup de la siguiente manera:
+
+    this.loginForm = this.formBuilder.group({
+      email: new FormControl("", Validators.compose([
+        Validators.required,
+        Validators.email 
+        //Aquí tambien se puede agregar una validación con REGEX, en este caso no fue necesario
+        //Porque con Validators.email fue
+        //Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")
+      ])),
+
+      otroCampo: new FormControl("", Validators.compose([]))
+    });
+  }
+
+  A nivel del HTML FUE SE HACE ASÍ:
+ <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+  </form>
+
+
+
+  NOTA: ES MUY IMPORTANTE SIEMPRE TRABAJAR CON LO COMPONENTES
+  DE IONIC 
+  <ion-label></ion-label>
+  <ion-input></ion-input> POR QUE ESTOS SE RENDERIZARAN DE MANERA NATIVA EN IOS Y ANDROID
+
+  // Esta etiqueta es propia de IONIC y cumple la función de 
+    ser un tipo de <p> o <h1> pero sin los estilos propios de 
+    una etiqueta p, es basicamente un contenedor logico que sirve
+    para mostrar algo o no.
+  <ng-container> </ng-container>

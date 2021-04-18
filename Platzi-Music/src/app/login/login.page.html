@@ -1,5 +1,33 @@
 <ion-content>
-<figure class="ion-text-center ion-padding">
-  <img src="assets/img/logo.png">
-</figure>
+  <figure class="ion-text-center ion-padding">
+    <img src="assets/img/logo.png">
+  </figure>
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+    <ion-item>
+      <ion-label>Email:</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <div class="validation-error ion-text-left ion-padding">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <!--Si se modifico el input con valores o esta lleno muestre el error-->
+        <div *ngIf="loginForm.get('email').hasError(validation.type) && 
+          (loginForm.get('email').dirty || loginForm.get('email').touched) ">
+          {{validation.message}}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label>Password:</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <div class="validation-error ion-text-left ion-padding">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <!--Si se modifico el input con valores o esta lleno muestre el error-->
+        <div *ngIf="loginForm.get('password').hasError(validation.type) && 
+           (loginForm.get('password').dirty || loginForm.get('password').touched ) ">
+          {{validation.message}}
+        </div>
+      </ng-container>
+    </div>
+  </form>
 </ion-content>
