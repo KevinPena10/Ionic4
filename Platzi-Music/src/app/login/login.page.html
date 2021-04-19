@@ -29,18 +29,14 @@
         </div>
       </ng-container>
     </div>
-    <ion-button 
-    expand="full" 
-    shape="round" 
-    fill="outline" 
-    color="success"
-    [disabled] ="!loginForm.valid"
-    type="submit">
-    Login
-  </ion-button>
+    <div class="ion-text-center" >{{errorMessage}}</div>
+    <br/>
+    <ion-button expand="full" shape="round" fill="outline" color="success" [disabled]="!loginForm.valid" type="submit">
+      Login
+    </ion-button>
   </form>
 </ion-content>
-<ion-footer class="ion-text-center" >
+<ion-footer class="ion-text-center">
   <ion-button expand="full" shape="round" fill="outline" color="success">
     Click para registrar</ion-button>
 </ion-footer>
