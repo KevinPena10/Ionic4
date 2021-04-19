@@ -1,0 +1,64 @@
+<ion-content>
+  <figure class="ion-text-center ion-padding">
+    <img src="assets/img/logo.png">
+  </figure>
+  <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)">
+    <ion-item>
+      <ion-label>Nombre:</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+    <div class="validation-error ion-text-left ion-padding">
+      <ng-container *ngFor="let validation of validation_messages.nombre">
+        <!--Si se modifico el input con valores o esta lleno muestre el error-->
+        <div *ngIf="registerForm.get('nombre').hasError(validation.type) && 
+           registerForm.get('nombre').dirty ">
+          {{validation.message}}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label>Apellido:</ion-label>
+      <ion-input formControlName="apellido"></ion-input>
+    </ion-item>
+    <div class="validation-error ion-text-left ion-padding">
+      <ng-container *ngFor="let validation of validation_messages.apellido">
+        <!--Si se modifico el input con valores o esta lleno muestre el error-->
+        <div *ngIf="registerForm.get('apellido').hasError(validation.type) && 
+           registerForm.get('apellido').dirty ">
+          {{validation.message}}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label>Email:</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <div class="validation-error ion-text-left ion-padding">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <!--Si se modifico el input con valores o esta lleno muestre el error-->
+        <div *ngIf="registerForm.get('email').hasError(validation.type) && 
+           registerForm.get('email').dirty ">
+          {{validation.message}}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label>Password:</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <div class="validation-error ion-text-left ion-padding">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <!--Si se modifico el input con valores o esta lleno muestre el error-->
+        <div *ngIf="registerForm.get('password').hasError(validation.type) && 
+           (registerForm.get('password').dirty || registerForm.get('password').touched ) ">
+          {{validation.message}}
+        </div>
+      </ng-container>
+    </div>
+    <div class="ion-text-center" >{{errorMessage}}</div>
+    <br/>
+    <ion-button expand="full" shape="round" fill="outline" color="success" [disabled]="!registerForm.valid" type="submit">
+      Registrar
+    </ion-button>
+  </form>
+</ion-content>
