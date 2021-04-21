@@ -11,7 +11,7 @@ import { Storage } from '@ionic/storage-angular';
 
 export class LoginGuard implements CanActivate {
   constructor(private router: Router, private storage: Storage) {
-    this.storage.create();
+    //this.storage.create();
   }
 
   async canActivate() {

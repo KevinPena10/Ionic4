@@ -37,7 +37,7 @@ export class IntroPage implements OnInit {
       icon:"bicycle",
     }]
   constructor(private router: Router, private storage: Storage) { 
-    this.storage.create();
+    //this.storage.create();
   }
 
    ngOnInit() {

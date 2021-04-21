@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
     private formBuilder: FormBuilder,
     private navCtrl: NavController, private storage: Storage) {
 
-    this.storage.create();
+    //this.storage.create();
 
     this.loginForm = this.formBuilder.group({
       email: new FormControl("", Validators.compose([

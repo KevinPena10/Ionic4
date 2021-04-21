@@ -42,7 +42,7 @@ export class RegisterPage {
     private navCtrl: NavController, 
     private storage: Storage) {
 
-    this.storage.create();
+    //this.storage.create();
 
     this.registerForm = this.formBuilder.group({
       nombre: new FormControl("", Validators.compose([
@@ -64,10 +64,16 @@ export class RegisterPage {
         Validators.minLength(5),
       ])),
     });
-
-    console.log(this.registerForm)
-
   }
 
+  register(userData){
+   this.authService.registerUser(userData).then(()=>{
+    this.navCtrl.navigateBack("/login");
+   });
+  }
+
+  goToLogin(){
+    this.navCtrl.navigateBack("/login");
+  }
 
 }

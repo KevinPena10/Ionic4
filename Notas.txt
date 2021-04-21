@@ -197,4 +197,11 @@ import { NavController } from '@ionic/angular';
 
  constructor(private navCtrl: NavController) {} 
 
-this.navCtrl.navigateForward("/home");
+this.navCtrl.navigateForward("/home"); -> paso hacia adelante
+this.navCtrl.navigateBack("/login"); -> Paso hacia atrás
+
+------ Componente de Ionic------------------
+<ion-toolbar></ion-toolbar>
+
+Me sirve para añadir botones, titulos y elementos
+solo en la parte superarior de la aplicación.
