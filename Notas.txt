@@ -205,3 +205,38 @@ this.navCtrl.navigateBack("/login"); -> Paso hacia atrás
 
 Me sirve para añadir botones, titulos y elementos
 solo en la parte superarior de la aplicación.
+
+------------------ Menú EN IONIC-------------------------------
+
+Los menus por defecto no tiene un Header, ni un content..
+Entonces se deben borrar del archivo de menu.page.html
+
+Pero si tienen un elemento Padre que es el siguiente:
+<ion-split-pane>
+</ion-split-pane> 
+
+este <ion-split-pane contentId="content"> debe contener dentro el menú y el lugar
+donde se va renderizar el menú, Así:
+
+<ion-split-pane contentId="content">
+  <ion-menu contentId="content">
+  // este contentId="content" debe ser 
+  // igual nombrado cómo este id="content"
+  // deben corresponderse
+  </ion-menu>
+  <ion-router-outlet id="content" main></ion-router-outlet>
+</ion-split-pane>
+
+Estas son las parte del menú, siempre se van a utilizar 
+cuando se requiera realizarlo en Ionic. 
+
+Con la propiedad side = "end" estamos posicionando el menú 
+en la derechara de la pantalla y con "star" a la izquierda.
+
+Ejemplo:
+  <ion-menu contentId="content" side="end">
+
+ Siempre se le debe indicar al ionc-button donde va 
+ colocar los botones 
+ en este caso a la derecha con 
+ <ion-buttons slot="end"> 

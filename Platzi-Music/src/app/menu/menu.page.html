@@ -1,0 +1,21 @@
+<ion-split-pane contentId="content">
+    <ion-menu contentId="content" side="start">
+        <ion-header>
+            <ion-toolbar>
+                <ion-title>Menú</ion-title>
+                <ion-buttons>
+                    <ion-button icon-only="icon-only" (click)="closeMenu()">
+                        <ion-icon name="arrow-back" size="large"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item>Home</ion-item>
+                <ion-item>settings</ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="content" main="main"></ion-router-outlet>
+</ion-split-pane>
