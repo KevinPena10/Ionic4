@@ -11,9 +11,10 @@ export class AuthenticateService {
 
   }
 
-  loginUser(credential) {
+  async loginUser(credential) {
+    const user = await this.storage.get('user');
     return new Promise((resp, reject) => {
-      if (credential.email == "test@test.com" && credential.password == "12345") {
+      if (user.email == credential.email && btoa(credential.password) == user.password) {
         resp("Login correcto");
         console.log("Entro")
       } else {
