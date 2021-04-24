@@ -45,7 +45,7 @@ export class IntroPage implements OnInit {
 
   close(){
     this.storage.set('iSIntroShowed', true);
-    this.router.navigateByUrl("/home");
+    this.router.navigateByUrl("/login");
   }
 
 

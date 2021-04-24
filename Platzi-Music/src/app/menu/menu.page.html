@@ -3,8 +3,8 @@
         <ion-header>
             <ion-toolbar>
                 <ion-title>Menú</ion-title>
-                <ion-buttons>
-                    <ion-button icon-only="icon-only" (click)="closeMenu()">
+                <ion-buttons slot="start">
+                    <ion-button (click)="closeMenu()">
                         <ion-icon name="arrow-back" size="large"></ion-icon>
                     </ion-button>
                 </ion-buttons>
@@ -13,7 +13,12 @@
         <ion-content>
             <ion-list>
                 <ion-item>Home</ion-item>
+                <ion-item>Sports</ion-item>
                 <ion-item>settings</ion-item>
+                <ion-item (click)="Logout()">
+                     Logout
+                    <ion-icon name="log-out" color="success" slot="end" ></ion-icon>
+                </ion-item>
             </ion-list>
         </ion-content>
     </ion-menu>

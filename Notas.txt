@@ -206,6 +206,14 @@ this.navCtrl.navigateBack("/login"); -> Paso hacia atrás
 Me sirve para añadir botones, titulos y elementos
 solo en la parte superarior de la aplicación.
 
+
+<ion-avatar></ion-avatar>
+
+Este componente es una manera bonita de presentar
+imagenes dentro de otro elemento de Ionic, basicamente
+lo que hace este componente es recubrir la imagen del 
+artista y lo va poner en un circulo,
+
 ------------------ Menú EN IONIC-------------------------------
 
 Los menus por defecto no tiene un Header, ni un content..
@@ -240,3 +248,15 @@ Ejemplo:
  colocar los botones 
  en este caso a la derecha con 
  <ion-buttons slot="end"> 
+
+
+Para trabajar con el menú de Ionic desde el ts, se debe 
+importart la siguiente clase:
+
+  import { MenuController } from '@ionic/angular'; //Importamos
+
+  constructor(private menu: MenuController) { } //Inyectamos
+
+  closeMenu(){
+   this.menu.close(); //Utilizamos
+  }
