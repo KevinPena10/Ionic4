@@ -200,19 +200,38 @@ import { NavController } from '@ionic/angular';
 this.navCtrl.navigateForward("/home"); -> paso hacia adelante
 this.navCtrl.navigateBack("/login"); -> Paso hacia atrás
 
------- Componente de Ionic------------------
+----------------------- Componente de Ionic------------------
+Ion Toolbar:
 <ion-toolbar></ion-toolbar>
 
 Me sirve para añadir botones, titulos y elementos
 solo en la parte superarior de la aplicación.
 
+Ion Avatar:
 
 <ion-avatar></ion-avatar>
 
 Este componente es una manera bonita de presentar
 imagenes dentro de otro elemento de Ionic, basicamente
 lo que hace este componente es recubrir la imagen del 
-artista y lo va poner en un circulo,
+artista y lo va poner en un circulo
+
+Iongrid System:
+
+<ion-grid></ion-grid>
+
+Basicamente, este componente me ayuda a tabular datos y 
+controlar en que filas y que columnas para posicionar cosas.
+
+un mejor ejemplo del sistema sería asi:
+
+    <ion-grid>
+      <ion-row >
+        <ion-col size="2" class="ion-text-start">TEXTO</ion-col>
+        <ion-col size="10" class="ion-text-end">TEXTO</ion-col>
+        //Con size le indicamos a las filas cuanto va medir las columnas 
+      </ion-row>
+    </ion-grid>
 
 ------------------ Menú EN IONIC-------------------------------
 
@@ -274,7 +293,7 @@ agregar en el archivo tsconfig.json en el objecto compilerOptions
 la bandera:
 "resolveJsonModule": true,
 
-_________________ COMPONENTE MODAL ________________________
+______________________ COMPONENTE MODAL ________________________
 
 Cuando se va implementar un modal en Ionic se hace de la siguiente forma:
 
