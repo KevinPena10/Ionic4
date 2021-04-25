@@ -268,6 +268,10 @@ ionViewDidEnter(){}
 Este metodo se ejecuta una vez que hayas entrando exitosamente
 en la vista y se haya ejecutado el constructor y el html este listo
 
-
+------------------ Cargar Archivos JSON Staticos---------------------------------------
+Cuando vamos a trabajar con archivos JSON Staticos, se debe 
+agregar en el archivo tsconfig.json en el objecto compilerOptions
+la bandera:
+"resolveJsonModule": true,
 
 
