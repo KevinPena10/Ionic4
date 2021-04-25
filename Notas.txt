@@ -325,3 +325,43 @@ SE DEBE QUITAR EL METODO NGONINIT() Y QUITARLO DEL IMPLEMENTS DEL
 COMPONENTE. 
 
 Y SE PONE EL METODO, ionViewDidEnter()
+
+__________________ Plugins & Capacitor________________________
+
+photo: SafeResourceUrl; 
+Con esta funcionalidad de algún modo evitamos que 
+haya configuraciones mal intecionadas a las urls.
+
+Para utilizar los plugins de capacitor o la camara en este caso,
+se importa la siguiente libreria:
+
+import { Plugins, CameraResultType, CameraSource } from "@capacitor/core";
+
+A través de getPhoto podemos acceder a la camara del dispositivo para tomar
+la foto, esto pide unas variables antes de iniciar,
+cómo la calidad de la imange (quality), el tipo de imangen y 
+la fuente de la foto, este caso CameraSource.Camera,
+pero de se podria poner que acceda a la galeria con:
+CameraSource.Photos
+
+ const image = await Plugins.Camera.getPhoto({
+     quality: 100,
+     allowEditing: false,
+     resultType:CameraResultType.DataUrl, -> Se recomienda utilizar dataUrl porque es mas compatible con un src en el html
+     source: CameraSource.Camera
+   });
+
+Ahora bien el plugin funciona perfectamente si estuvieramos
+ejecutando desde el celular, pero para probar en el navegador
+necesitamos ayudarnos del siguiente comando.
+
+npm install @ionic/pwa-elements --save
+Esto lo que me va permitir es acceder a los elementos  
+del computador, para poder hacer las pruebas de los distintos plugins.
+
+Luego hay que ir al MAIN.TS a realizar la siguiente 
+modificacion para que Ionic este al tanto que 
+se va trabajar con los componentes del Pc 
+
+import { defineCustomElements } from "@ionic/pwa-elements/loader";
+defineCustomElements(window);
