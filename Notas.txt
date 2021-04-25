@@ -274,4 +274,35 @@ agregar en el archivo tsconfig.json en el objecto compilerOptions
 la bandera:
 "resolveJsonModule": true,
 
+_________________ COMPONENTE MODAL ________________________
 
+Cuando se va implementar un modal en Ionic se hace de la siguiente forma:
+
+1. Implementar el modal controler de Ionic, de la siguiente manera:
+
+import { ModalController } from '@ionic/angular';
+
+  //Inyectar
+  constructor(private modalController: ModalController) {}
+
+  //Implementar
+
+  const modal = await this.modalController.create({
+      component: SongsModalPage,
+      //componentesProps sirve de intermediaro entre el home y el modal
+      //para enviar los parametros que se necesitan en el otro lado
+      componentProps: { 
+        songs: songs.tracks, //Parametros de Inicialización 
+        artist: artist.name, //Del modal
+      } 
+  });
+
+  return await modal.present(); //No olvidar el present, para abrir el modal.
+
+
+NOTA: ES IMPORTANTE RECORDAR QUE EL METODO ONINIT SE UTILIZA
+ES EN ANGULAR NO EN IONIC, ENTONCES
+SE DEBE QUITAR EL METODO NGONINIT() Y QUITARLO DEL IMPLEMENTS DEL 
+COMPONENTE. 
+
+Y SE PONE EL METODO, ionViewDidEnter()

@@ -29,12 +29,9 @@ export class HomePage {
       const songs = await this.musicService.getArtistsTopTracks(artist.id);
       const modal = await this.modalController.create({
         component: SongsModalPage,
-        //componentesProps sirve de intermediaron entre el home y el modal
-        //Basicamente por aquí se le envian los parametros que se
-        //necesitan en el otro lado
         componentProps: { 
-         songs: songs.tracks, //Parametros de Inicialización 
-         artist: artist.name, //Del modal
+         songs: songs.tracks, //Parametros enviados al modal
+         artist: artist.name, 
         } 
       });
       return await modal.present();
