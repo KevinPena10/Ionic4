@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="success"></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-  <h1>Artists</h1>
+  <h1 class="letter">Artists</h1>
   <ion-slides  [options]="slideOps" *ngIf="artists.length">
     <ion-slide *ngFor="let artist of artists">
       <ion-avatar (click)="showSongs(artist)"> 
@@ -15,7 +15,7 @@
       </ion-avatar>
     </ion-slide>
   </ion-slides>
-  <h1>Albums</h1>
+  <h1 class="letter">Albums</h1>
   <ion-slides  [options]="slideOps" *ngIf="albums.length">
     <ion-slide *ngFor="let album of albums">
       <ion-avatar class="square-avatar"><!--con esta class ponemos los albums cuadrados-->
@@ -24,7 +24,7 @@
       </ion-avatar>
     </ion-slide>
   </ion-slides>
-  <h1>Songs</h1>
+  <h1 class="letter">Songs</h1>
   <ion-slides  [options]="slideOps" *ngIf="songs.length">
     <ion-slide *ngFor="let song of songs">
       <ion-avatar class="square-avatar">
@@ -34,3 +34,11 @@
     </ion-slide>
   </ion-slides>
 </ion-content>
+<ion-footer>
+  <ion-text color="success" *ngIf="!song.name">
+   <h2 class="letter">Our song will appear here </h2> 
+  </ion-text>
+  <ion-text color="success" *ngIf="song">
+    <h2>{{ song.name }}</h2> 
+   </ion-text>
+</ion-footer>

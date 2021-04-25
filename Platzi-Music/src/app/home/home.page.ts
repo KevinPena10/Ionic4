@@ -8,6 +8,7 @@ export class HomePage {
     artists: any[] = [];
     songs: any[] = [];
     albums: any[] = [];
+    song: any = {};
 
     slideOps = {
         initialSlide: 2,
@@ -34,6 +35,16 @@ export class HomePage {
          artist: artist.name, 
         } 
       });
+
+      modal.onDidDismiss().then(dataReturned=>{
+        if (dataReturned.data == null) {
+          this.song = {};
+        } else {
+          this.song = dataReturned.data;
+        }
+        console.log(this.song)
+      });
+
       return await modal.present();
     }
 
