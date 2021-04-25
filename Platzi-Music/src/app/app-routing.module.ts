@@ -35,8 +35,6 @@ const routes: Routes = [
     loadChildren: () => import('./songs-modal/songs-modal.module').then( m => m.SongsModalPageModule)
   },
 
-
-
 ];
 
 @NgModule({

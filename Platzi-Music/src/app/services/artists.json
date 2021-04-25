@@ -388,6 +388,41 @@
         },
         {
             "external_urls": {
+                "spotify": "https://open.spotify.com/artist/4q3ewBCX7sLwd24euuV69X?si=0XWR5KUWQzaJiySehu_nkw"
+            },
+            "followers": {
+                "href": null,
+                "total": 16581097
+            },
+            "genres": [
+                "reggaeton"
+            ],
+            "href": "https://open.spotify.com/artist/4q3ewBCX7sLwd24euuV69X?si=0XWR5KUWQzaJiySehu_nkw",
+            "id": "4q3ewBCX7sLwd24euuV69X",
+            "images": [
+                {
+                    "height": 640,
+                    "url": "https://i.scdn.co/image/1c66d291db8ab21ac32d045ef28199fb195b97cf",
+                    "width": 640
+                },
+                {
+                    "height": 320,
+                    "url": "https://i.scdn.co/image/1c66d291db8ab21ac32d045ef28199fb195b97cf",
+                    "width": 320
+                },
+                {
+                    "height": 160,
+                    "url": "https://i.scdn.co/image/1c66d291db8ab21ac32d045ef28199fb195b97cf",
+                    "width": 160
+                }
+            ],
+            "name": "Bad Bunny",
+            "popularity": 93,
+            "type": "artist",
+            "uri": "spotify:artist:4q3ewBCX7sLwd24euuV69X"
+        },
+        {
+            "external_urls": {
                 "spotify": "https://open.spotify.com/artist/4yscD4NQlCKXEpUvBV3nj8"
             },
             "followers": {

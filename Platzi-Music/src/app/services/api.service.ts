@@ -26,4 +26,13 @@ export class ApiService {
       response=> response.json()
       );
   }
+
+  getAlbumTracks(albumId){
+    return fetch(
+      `https://platzi-music-api.herokuapp.com/albums/${albumId}/tracks?country=CO`
+      ).then(
+      response=> response.json()
+      );
+  }
+
 }

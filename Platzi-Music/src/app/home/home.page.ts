@@ -50,14 +50,47 @@ export class HomePage {
       return await modal.present();
     }
 
+    async showSongsByAlbum(album){
+      const songs = await this.musicService.getAlbumTracks(album.id);
+      console.log("" , songs);
+      const modal = await this.modalController.create({
+        component: SongsModalPage,
+        componentProps: { 
+         songs: songs.items, //Parametros enviados al modal
+         artist: album.name, 
+        } 
+      });
+
+      modal.onDidDismiss().then(dataReturned=>{
+        if (dataReturned.data == null) {
+          this.song = {};
+        } else {
+          this.song = dataReturned.data;
+        }
+        console.log(this.song)
+      });
+
+      return await modal.present();
+    }
+
+
+   
+
     play() {
       this.currentSong = new Audio(this.song.preview_url);
       this.currentSong.play();
       this.currentSong.addEventListener("timeupdate", () => {
         this.newTime = ( 1 / this.currentSong.duration ) * this.currentSong.currentTime;
+        if(this.parseTime(this.currentSong.currentTime)  === "00:30"){
+          this.song.playing = false;
+        }
+     
       });
       this.song.playing = true;
+
+     
     }
+
     pause() {
       this.currentSong.pause();
       this.song.playing = false;

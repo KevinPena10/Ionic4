@@ -18,8 +18,7 @@
     <h1 class="letter">Albums</h1>
     <ion-slides [options]="slideOps" *ngIf="albums.length">
         <ion-slide *ngFor="let album of albums">
-            <ion-avatar
-                class="square-avatar">
+            <ion-avatar class="square-avatar" (click)="showSongsByAlbum(album)">
                 <!--con esta class ponemos los albums cuadrados-->
                 <img [src]="album.images[0].url"/>
                 <span>{{album.name}}</span>
