@@ -260,3 +260,14 @@ importart la siguiente clase:
   closeMenu(){
    this.menu.close(); //Utilizamos
   }
+
+------------------- CICLOS DE VIDA DE IONIC----------------------
+
+ionViewDidEnter(){}
+
+Este metodo se ejecuta una vez que hayas entrando exitosamente
+en la vista y se haya ejecutado el constructor y el html este listo
+
+
+
+
