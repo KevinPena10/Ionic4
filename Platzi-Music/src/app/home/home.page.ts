@@ -16,6 +16,8 @@ export class HomePage {
         centeredSlides: true,
         speed: 400
     };
+    currentSong: any = {};
+    newTime;
     constructor(private musicService : ApiService, private modalController: ModalController) {}
 
     ionViewDidEnter() {
@@ -48,12 +50,35 @@ export class HomePage {
       return await modal.present();
     }
 
-    play(){
-      this.song.playing= true;
+    play() {
+      this.currentSong = new Audio(this.song.preview_url);
+      this.currentSong.play();
+      this.currentSong.addEventListener("timeupdate", () => {
+        this.newTime = ( 1 / this.currentSong.duration ) * this.currentSong.currentTime;
+      });
+      this.song.playing = true;
     }
-
-    pause(){
+    pause() {
+      this.currentSong.pause();
       this.song.playing = false;
     }
+  
+    parseTime(time) {
+      if (time) {
+        
+        const partTime = parseInt(time.toString().split(".")[0], 10);
+        
+        let minutes = Math.floor(partTime / 60).toString(); //un minuto lo dividimos en 60 segs
 
-}
+        if (minutes.length == 1) {
+          minutes = "0" + minutes;
+        }
+        let seconds = (partTime % 60).toString();
+        if (seconds.length == 1) {
+          seconds = "0" + seconds;
+        }
+        return minutes + ":" + seconds;
+      }
+    }
+  }
+
