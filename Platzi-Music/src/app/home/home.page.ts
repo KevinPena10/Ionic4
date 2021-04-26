@@ -72,10 +72,6 @@ export class HomePage {
 
       return await modal.present();
     }
-
-
-   
-
     play() {
       this.currentSong = new Audio(this.song.preview_url);
       this.currentSong.play();
@@ -87,7 +83,7 @@ export class HomePage {
      
       });
       this.song.playing = true;
-
+    
      
     }
 
