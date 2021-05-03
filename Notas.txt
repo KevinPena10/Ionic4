@@ -390,3 +390,19 @@ Ajusta lo siguiente:
 
 npm install @types/googlemaps@3.39.12 --save-dev
 npm install @agm/core --save
+
+__________________ Llevar nuestra aplicación a producción con Android_____________
+
+1. Ejecutar el comando: ionic build --prod
+2. Cuando termina de ejecutar el comando todo queda 
+guardado en la carpeta www, la cual capacitor envuelve el código html
+para llevarlo a Android o IOS
+3. tiramos el comando: npx cap sync
+Este comando configura todos los plugins, copia 
+la carpeta www y lo deja todo listo para abrirlo en android studio
+con el comando  npx cap open android, allí toca esperar a que el proyecto
+descargue todas las dependencias necesarias para funciar.
+
+Nota: Si te sale un error en consola, trata primero de limpiar la cache 
+ir a gradlew en la parte izquierda,
+buscar android/tasks/other clean y le das clic desde ahí.
