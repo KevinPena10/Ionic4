@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { SongsModalPageModule } from './songs-modal/songs-modal.module';
+import { AgmCoreModule} from '@agm/core';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +21,10 @@ import { SongsModalPageModule } from './songs-modal/songs-modal.module';
     IonicModule.forRoot(), 
     AppRoutingModule,
     SongsModalPageModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: environment.mapsKeyApi
+    })
 
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

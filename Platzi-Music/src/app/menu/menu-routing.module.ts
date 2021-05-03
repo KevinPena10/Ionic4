@@ -18,6 +18,10 @@ const routes: Routes = [
         loadChildren: () => import('../settings/settings.module').then( m => m.SettingsPageModule)
       },
       {
+        path: 'sports',
+        loadChildren: () => import('../sports/sports.module').then( m => m.SportsPageModule)
+      },
+      {
         path:"",
         redirectTo:"home",
         pathMatch:"full"
