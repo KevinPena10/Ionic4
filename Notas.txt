@@ -365,3 +365,28 @@ se va trabajar con los componentes del Pc
 
 import { defineCustomElements } from "@ionic/pwa-elements/loader";
 defineCustomElements(window);
+____________________  Angular Maps_______________________________
+https://angular-maps.com/
+
+Es una libreria de Angular que nos permite manipular facilmente desde 
+nuestros componentes opciones para mapas, marcadores , etc.
+
+Para instalar esta libreria es con el comando:
+npm install @agm/core
+
+trabajar con una version de Node >= 10.13.0 pero menos a la 15, presenta problemas.
+
+Para trabajar con este componente se necesita generar una llave de de google
+"Api key"
+
+Link: 
+https://developers.google.com/maps/documentation/javascript/get-api-key
+
+seguir los pasos para obtener la key y posteriormente agregar esa key
+en los environments del proyecto.
+
+En caso de problemas con la compilación,
+Ajusta lo siguiente:
+
+npm install @types/googlemaps@3.39.12 --save-dev
+npm install @agm/core --save
